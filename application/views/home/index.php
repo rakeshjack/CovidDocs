@@ -93,16 +93,10 @@
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
-		<form role="search">
-			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Search">
-			</div>
-		</form>
 		<ul class="nav menu">
-			
 			<li class="<?php echo ($active=='1') ? "active" :"" ?>"><a href="<?php echo base_url(); ?>home"><em class="fa fa-bar-chart">&nbsp;</em>Covid</a></li>
 			<li class="<?php echo ($active=='2') ? "active" :"" ?>"><a href="<?php echo base_url(); ?>file-history/0"><em class="fa fa-toggle-off">&nbsp;</em>Action History</a></li>
-			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
+			<li><a href="#"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
 		
@@ -129,6 +123,18 @@
 					<div class="panel-heading">Covid Details</div>
 					<div class="panel-body">
 						<div class="col-md-12">
+						<div class="row">
+							<form role="search" method="POST" name="formsearch" action="<?php echo base_url();?>home">
+							<div class="col-md-4">
+								<div class="form-group">
+									<input type="text" class="form-control" name="search" value="" placeholder="Search">
+								</div>
+							</div>
+							<div class="col-md-4">
+								<button type="submit" name="search" value="search" class="btn btn-primary">Search</button>
+							</div>
+							</form>
+						</div>
 						<table class="table">
 							<thead>
 								<tr>

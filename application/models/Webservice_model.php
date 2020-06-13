@@ -54,4 +54,26 @@ class Webservice_model extends CI_Model {
         $query = $this->db->get();        
         return $query->result();
     }
+    public function get_covidfiles() {
+        $this->db->select("*");
+        $this->db->from("covidfiles");
+        $query = $this->db->get();        
+        return $query->result();
+    }
+    public function get_covidfileSearch_limits($search,$perpage,$offset) {
+        $this->db->select("*");
+        $this->db->where('filename','%'.$search.'%');
+        $this->db->from("covidfiles");
+        $this->db->limit($perpage);
+        $this->db->offset($offset);
+        $query = $this->db->get();        
+        return $query->result();
+    }
+    public function get_covidfilesSearch($search) {
+        $this->db->select("*");
+        $this->db->where('filename','%'.$search.'%');
+        $this->db->from("covidfiles");
+        $query = $this->db->get();        
+        return $query->result();
+    }
 }
