@@ -133,18 +133,17 @@
 							<thead>
 								<tr>
 								<th scope="col">#</th>
-								<th scope="col">File Name</th>
-								<th scope="col">Action</th>
+								<th scope="col">History</th>
+								<th scope="col">Date & Time</th>
 								</tr>
 							</thead>
 							<tbody>
-								<?php foreach($Handler as $key=>&$record) { ?>
+								<?php foreach($history as $key=>$record) { ?>
 								<tr>
-								<th scope="row"><?php echo $key; ?></th>
-								<td><?php echo $record; ?></td>
+								<th scope="row"><?php echo $key+1; ?></th>
+								<td><?php echo $record->filename; ?></td>
 								<td>
-								<button class="btn btn-primary btn-xs">Edit</button>
-								<a href="<?php echo base_url(); ?>file-delete/<?php echo $record; ?>" class="btn btn-danger btn-xs">Delete</a>
+								<?php echo date('d-M-Y H:i a',strtotime($record->created_at)); ?>
 								</td>
 								</tr>
 								<?php } ?>
@@ -152,29 +151,6 @@
 							</table>
 							<br />
 							<br />
-						</div>
-					</div>
-				</div><!-- /.panel-->
-				
-				
-				<div class="panel panel-default">
-					<div class="panel-heading">Covid Files</div>
-					<div class="panel-body">
-						<div class="col-md-6">
-							<form action="<?php echo base_url();?>file-upload" role="form" method="post" enctype="multipart/form-data">
-								<div class="form-group">
-									<label>Covid File Name</label>
-									<input type="text" name="username" class="form-control" placeholder="Covid File Name">
-								</div>
-
-								<div class="form-group">
-									<label>Covid File</label>
-									<input type="file" name="covidfiles" value="">
-								</div>
-								<button type="submit" name="submit" value="submit" class="btn btn-primary">Submit</button>
-								<button type="reset" name="reset" value="reset" class="btn btn-default">Reset</button>
-								</div>
-							</form>
 						</div>
 					</div>
 				</div><!-- /.panel-->
