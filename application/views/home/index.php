@@ -100,8 +100,8 @@
 		</form>
 		<ul class="nav menu">
 			
-			<li class="active"><a href="<?php echo base_url(); ?>home"><em class="fa fa-bar-chart">&nbsp;</em>Volunteers</a></li>
-			<li><a href="<?php echo base_url(); ?>history"><em class="fa fa-toggle-off">&nbsp;</em>Action History</a></li>
+			<li class="<?php echo ($active=='1') ? "active" :"" ?>"><a href="<?php echo base_url(); ?>home"><em class="fa fa-bar-chart">&nbsp;</em>Volunteers</a></li>
+			<li class="<?php echo ($active=='2') ? "active" :"" ?>"><a href="<?php echo base_url(); ?>file-history/0"><em class="fa fa-toggle-off">&nbsp;</em>Action History</a></li>
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->

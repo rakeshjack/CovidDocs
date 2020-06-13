@@ -38,4 +38,12 @@ class Webservice_model extends CI_Model {
         $query = $this->db->get();        
         return $query->result();
     }
+    public function get_history_limits($perpage,$offset) {
+        $this->db->select("*");
+        $this->db->limit($perpage);
+        $this->db->offset($offset);
+        $this->db->from("histories");
+        $query = $this->db->get();        
+        return $query->result();
+    }
 }

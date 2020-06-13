@@ -15,11 +15,9 @@ class Home extends CI_Controller {
 			unset($myfiles[0]);
 			unset($myfiles[1]);
 			$data['Handler']=$myfiles;
+			$data['active']="1";
 			$this->load->view('home/index',$data);
 		}
-	}
-	public function home_page() {
-		
 	}
 	public function user_file() {
 		$filename=$this->uri->segment('2');
@@ -37,8 +35,6 @@ class Home extends CI_Controller {
 		$config['upload_path']          = './assets/docs/';
 		$config['allowed_types']        = 'gif|jpg|png|txt|doc|docx|pdf|png|jpeg|jpg|gif';
 		$config['max_size']             = 2000;
-		//$config['max_width']            = 1024;
-		//$config['max_height']           = 768;
 		$records=array(
 			'name'=>$this->input->post('username'),
 			'filename'=>$_FILES['covidfiles']['name']);
@@ -53,9 +49,16 @@ class Home extends CI_Controller {
 		}
 	}
 	public function file_history() {
+		$offset=$this->uri->segment('2');
+		$perpage=5;
+		$data['history']=$this->Webservice_model->get_history_limits($perpage,$offset);
+		$this->load->library('pagination');
+		$config['base_url'] = base_url().'file-history/';
+		$config['total_rows'] = count($this->Webservice_model->get_history());
+		$config['per_page'] = 5;
+		$this->pagination->initialize($config);
 		$data['admin']=$this->Webservice_model->admin_get();
-		$data['history']=$this->Webservice_model->get_history();
-		//echo "<pre>"; print_r($data['history']);exit;
+		$data['active']="2";
 		$this->load->view('home/history',$data);
 		
 	}

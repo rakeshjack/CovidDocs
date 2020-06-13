@@ -56,4 +56,5 @@ $route['translate_uri_dashes'] = FALSE;
 $route['user-home']="home/home_page";
 $route['file-delete/(:any)']="home/user_file";
 $route['file-upload']="home/file_upload";
-$route['history']="home/file_history";
+$route['file-history']="home/file_history";
+$route['file-history/(:any)']="home/file_history";

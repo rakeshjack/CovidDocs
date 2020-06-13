@@ -100,8 +100,8 @@
 		</form>
 		<ul class="nav menu">
 			
-			<li class="active"><a href="<?php echo base_url(); ?>home"><em class="fa fa-bar-chart">&nbsp;</em>Volunteers</a></li>
-			<li><a href="<?php echo base_url(); ?>history"><em class="fa fa-toggle-off">&nbsp;</em>Action History</a></li>
+        <li class="<?php echo ($active=='1') ? "active" :"" ?>"><a href="<?php echo base_url(); ?>home"><em class="fa fa-bar-chart">&nbsp;</em>Covid</a></li>
+			<li class="<?php echo ($active=='2') ? "active" :"" ?>"><a href="<?php echo base_url(); ?>file-history/0"><em class="fa fa-toggle-off">&nbsp;</em>Action History</a></li>
 			<li><a href="login.html"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
 	</div><!--/.sidebar-->
@@ -112,13 +112,13 @@
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Volunteers</li>
+				<li class="active">Covid</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Volunteers</h1>
+				<h1 class="page-header">Covid</h1>
 			</div>
 		</div><!--/.row-->
 				
@@ -126,7 +126,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Volunteers Details</div>
+					<div class="panel-heading">Covid Details</div>
 					<div class="panel-body">
 						<div class="col-md-12">
 						<table class="table">
@@ -149,6 +149,7 @@
 								<?php } ?>
 							</tbody>
 							</table>
+                            <?php echo $this->pagination->create_links(); ?>
 							<br />
 							<br />
 						</div>
