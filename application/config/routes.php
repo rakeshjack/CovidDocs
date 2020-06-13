@@ -53,7 +53,8 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['user-home']="home/home_page";
+
+$route['home/(:any)']="home/index";
 $route['file-delete/(:any)']="home/user_file";
 $route['file-upload']="home/file_upload";
 $route['file-history']="home/file_history";

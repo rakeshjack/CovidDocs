@@ -126,7 +126,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Covid Details</div>
+					<div class="panel-heading">Covid History</div>
 					<div class="panel-body">
 						<div class="col-md-12">
 						<table class="table">

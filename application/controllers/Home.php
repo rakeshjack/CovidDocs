@@ -8,14 +8,22 @@ class Home extends CI_Controller {
     }
 
 	public function index() {
-		$data['admin']=$this->Webservice_model->admin_get();
+		$offset=$this->uri->segment('2');
 		$dir = "assets/docs/";
 		if (is_dir($dir)) {
 			$myfiles = scandir($dir);		
 			unset($myfiles[0]);
 			unset($myfiles[1]);
-			$data['Handler']=$myfiles;
+			$perpage=5;
+			$data['Handler']=$this->Webservice_model->get_covidfiles_limits($perpage,$offset);
+			$this->load->library('pagination');
+			$config['base_url'] = base_url().'home/';
+			$config['total_rows'] = count($myfiles);
+			$config['per_page'] = 5;
+			$this->pagination->initialize($config);
+			//$data['Handler']=$myfiles;
 			$data['active']="1";
+			$data['admin']=$this->Webservice_model->admin_get();
 			$this->load->view('home/index',$data);
 		}
 	}
